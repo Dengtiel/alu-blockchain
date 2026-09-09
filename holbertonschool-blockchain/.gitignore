@@ -1,0 +1,11 @@
+*.o
+crypto/sha256-test
+crypto/ec_create-test
+crypto/ec_from_pub-test
+crypto/ec_load-test
+crypto/ec_save-test
+crypto/ec_sign-test
+crypto/ec_to_pub-test
+crypto/ec_verify-test
+*.pem
+crypto/Betty/
