@@ -13,6 +13,9 @@
 /* Elliptic curve used for key generation */
 #define EC_CURVE NID_secp256k1
 
+/* Length (in bytes) of an uncompressed EC public key: 1 + 32 + 32 */
+#define EC_PUB_LEN 65
+
 /**
  * sha256 - Computes the SHA256 hash of a sequence of bytes
  * @s: Sequence of bytes to be hashed
@@ -31,5 +34,14 @@ uint8_t *sha256(int8_t const *s, size_t len,
  *         public and private keys, or NULL upon failure
  */
 EC_KEY *ec_create(void);
+
+/**
+ * ec_to_pub - Extracts the public key from an EC_KEY structure
+ * @key: Pointer to the EC_KEY structure to retrieve the public key from
+ * @pub: Buffer in which to store the extracted public key (uncompressed)
+ *
+ * Return: A pointer to @pub, or NULL upon failure
+ */
+uint8_t *ec_to_pub(EC_KEY const *key, uint8_t pub[EC_PUB_LEN]);
 
 #endif /* HBLK_CRYPTO_H */
