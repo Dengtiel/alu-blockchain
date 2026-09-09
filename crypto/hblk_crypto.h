@@ -6,8 +6,12 @@
 
 #include <stdint.h>
 #include <stddef.h>
+#include <stdio.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #include <openssl/sha.h>
 #include <openssl/ec.h>
+#include <openssl/pem.h>
 #include <openssl/obj_mac.h>
 
 /* Elliptic curve used for key generation */
@@ -15,6 +19,10 @@
 
 /* Length (in bytes) of an uncompressed EC public key: 1 + 32 + 32 */
 #define EC_PUB_LEN 65
+
+/* Filenames used to store EC key pairs on disk */
+#define EC_PRIV_FILENAME "key.pem"
+#define EC_PUB_FILENAME "key_pub.pem"
 
 /**
  * sha256 - Computes the SHA256 hash of a sequence of bytes
@@ -52,5 +60,14 @@ uint8_t *ec_to_pub(EC_KEY const *key, uint8_t pub[EC_PUB_LEN]);
  *         or NULL upon failure
  */
 EC_KEY *ec_from_pub(uint8_t const pub[EC_PUB_LEN]);
+
+/**
+ * ec_save - Saves an EC key pair to disk in PEM format
+ * @key: Pointer to the EC key pair to save
+ * @folder: Path to the folder in which to save the keys
+ *
+ * Return: 1 upon success, or 0 upon failure
+ */
+int ec_save(EC_KEY *key, char const *folder);
 
 #endif /* HBLK_CRYPTO_H */
