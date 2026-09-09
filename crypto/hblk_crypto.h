@@ -21,8 +21,8 @@
 #define EC_PUB_LEN 65
 
 /* Filenames used to store EC key pairs on disk */
-#define EC_PRIV_FILENAME "key.pem"
-#define EC_PUB_FILENAME "key_pub.pem"
+#define PRI_FILENAME "key.pem"
+#define PUB_FILENAME "key_pub.pem"
 
 /**
  * sha256 - Computes the SHA256 hash of a sequence of bytes

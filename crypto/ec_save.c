@@ -22,7 +22,7 @@ int ec_save(EC_KEY *key, char const *folder)
 			return (0);
 	}
 
-	snprintf(path, sizeof(path), "%s/%s", folder, EC_PRIV_FILENAME);
+	snprintf(path, sizeof(path), "%s/%s", folder, PRI_FILENAME);
 	fp = fopen(path, "w");
 	if (fp == NULL)
 		return (0);
@@ -33,7 +33,7 @@ int ec_save(EC_KEY *key, char const *folder)
 	}
 	fclose(fp);
 
-	snprintf(path, sizeof(path), "%s/%s", folder, EC_PUB_FILENAME);
+	snprintf(path, sizeof(path), "%s/%s", folder, PUB_FILENAME);
 	fp = fopen(path, "w");
 	if (fp == NULL)
 		return (0);
