@@ -1,4 +1,3 @@
-.RECIPEPREFIX = >
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -pedantic -I. -I../../crypto
 SRC = blockchain_create.c block_create.c block_destroy.c \
@@ -10,13 +9,13 @@ NAME = libhblk_blockchain_v0.1.a
 all: $(NAME)
 
 $(NAME): $(OBJ)
-> ar rcs $@ $^
+	ar rcs $@ $^
 
 clean:
-> rm -f $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-> rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
