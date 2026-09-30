@@ -46,5 +46,7 @@ int block_is_valid(block_t const *block, block_t const *prev_block)
 	if (!block_hash(block, hash) ||
 		memcmp(hash, block->hash, SHA256_DIGEST_LENGTH))
 		return (-1);
+	if (!hash_matches_difficulty(block->hash, block->info.difficulty))
+		return (-1);
 	return (0);
 }
