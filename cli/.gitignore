@@ -1,0 +1,5 @@
+cli
+*.o
+*.hblk
+wallet/
+my_wallet/
