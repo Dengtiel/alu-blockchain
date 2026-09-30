@@ -24,9 +24,10 @@ uint32_t blockchain_difficulty(blockchain_t const *blockchain)
 		last->info.index + 1 - DIFFICULTY_ADJUSTMENT_INTERVAL);
 	if (!adjusted)
 		return (last->info.difficulty);
-	expected = DIFFICULTY_ADJUSTMENT_INTERVAL * BLOCK_GENERATION_INTERVAL;
+	expected = (uint64_t)DIFFICULTY_ADJUSTMENT_INTERVAL *
+		BLOCK_GENERATION_INTERVAL;
 	actual = last->info.timestamp - adjusted->info.timestamp;
-	if (actual < expected / 2)
+	if (actual * 2 < expected)
 		return (last->info.difficulty + 1);
 	if (actual > expected * 2)
 		return (last->info.difficulty ? last->info.difficulty - 1 : 0);
