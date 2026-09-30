@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "../blockchain.h"
 
 /**
@@ -54,5 +53,42 @@ void _blockchain_print(blockchain_t const *blockchain)
 	printf("Blockchain: {\n\tchain [%d]: [\n", size);
 	for (i = 0; i < size; i++)
 		_block_print(llist_get_node_at(blockchain->chain, i));
+	printf("\t]\n}\n");
+}
+
+/**
+ * _block_print_brief - prints a Block in a compact format
+ *
+ * @block: pointer to the Block to print
+ */
+static void _block_print_brief(block_t const *block)
+{
+	printf("\t\tBlock: {\n\t\t\tinfo: { %u, %u, %lu, %lu, ",
+		block->info.index, block->info.difficulty,
+		(unsigned long)block->info.timestamp,
+		(unsigned long)block->info.nonce);
+	_print_hex(block->info.prev_hash, SHA256_DIGEST_LENGTH);
+	printf(" },\n\t\t\tdata: { \"%.*s\", %u },\n\t\t\thash: ",
+		(int)block->data.len, (char const *)block->data.buffer,
+		block->data.len);
+	_print_hex(block->hash, SHA256_DIGEST_LENGTH);
+	printf("\n\t\t}\n");
+}
+
+/**
+ * _blockchain_print_brief - prints an entire Blockchain, compact format
+ *
+ * @blockchain: pointer to the Blockchain to print
+ */
+void _blockchain_print_brief(blockchain_t const *blockchain)
+{
+	int i, size;
+
+	if (!blockchain)
+		return;
+	size = llist_size(blockchain->chain);
+	printf("Blockchain: {\n\tchain [%d]: [\n", size);
+	for (i = 0; i < size; i++)
+		_block_print_brief(llist_get_node_at(blockchain->chain, i));
 	printf("\t]\n}\n");
 }
