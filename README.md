@@ -15,3 +15,9 @@ Located in `crypto/`. Provides:
 - Block mining with proof of work (difficulty in leading zero bits)
 - Serialization format HBLK 0.3 including transactions and unspent outputs
 - Static library: `make libhblk_blockchain.a`
+
+## explorer — Visual Blockchain Explorer (extension)
+
+`hblk_explorer` turns a saved `.hblk` Blockchain into an HTML page showing every
+Block, transaction and unspent output, and flags tampered Blocks by re-auditing
+the chain. See [explorer/README.md](explorer/README.md).

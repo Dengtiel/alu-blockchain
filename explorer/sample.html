@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Explorer</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1d2330;
+--muted:#6b7280;--line:#e3e6ea;--accent:#2f6fde;
+--ok:#1f9d55;--bad:#d64545}
+@media (prefers-color-scheme:dark){:root{--bg:#12151b;
+--card:#1b2029;--ink:#e6e9ef;--muted:#9aa3b2;
+--line:#2b313c;--accent:#6ea0ff;--ok:#3ecf8e;--bad:#ff6b6b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+header,main,footer{max-width:960px;margin:0 auto;padding:16px}
+h1{margin:8px 0 0}h2{margin:0 0 4px;font-size:18px}
+h3{font-size:15px;margin:12px 0 4px}
+h4{margin:4px 0;font-size:13px;color:var(--muted)}
+.muted{color:var(--muted)}a{color:var(--accent)}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;
+font-size:13px;word-break:break-all}
+.stats{display:grid;gap:12px;margin:0 0 16px;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.stat,.block,table{background:var(--card);
+border:1px solid var(--line);border-radius:10px}
+.stat{padding:12px}.stat b{display:block;font-size:22px}
+.block{border-left:4px solid var(--ok);padding:16px}
+.block.bad{border-left-color:var(--bad)}
+.badge{font-size:12px;padding:2px 8px;border-radius:99px;
+background:var(--ok);color:#fff;vertical-align:middle}
+.bad .badge,.warn{background:var(--bad);color:#fff}
+.warn{padding:10px 14px;border-radius:8px;margin:0 0 16px}
+.link{text-align:center;color:var(--muted);margin:6px 0}
+dl{display:grid;grid-template-columns:110px 1fr;
+gap:4px 12px;margin:8px 0}dt{color:var(--muted)}dd{margin:0}
+.tx{border:1px solid var(--line);border-radius:8px;
+padding:10px;margin:8px 0}
+.io{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.io p{margin:2px 0}.scroll{overflow-x:auto}
+.tag{background:var(--accent);color:#fff;border-radius:4px;
+padding:1px 6px;font-size:12px}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:6px 10px;
+border-bottom:1px solid var(--line)}
+@media (max-width:600px){.io,dl{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<h1>Blockchain Explorer</h1>
+<p class="muted">Source: sample.hblk</p>
+</header>
+<main>
+<div class="stats">
+<div class="stat"><b>4</b><span class="muted">Blocks</span></div>
+<div class="stat"><b>4</b><span class="muted">Valid blocks</span></div>
+<div class="stat"><b>5</b><span class="muted">Transactions</span></div>
+<div class="stat"><b>5</b><span class="muted">Unspent outputs</span></div>
+<div class="stat"><b>150</b><span class="muted">Coins in circulation</span></div>
+</div>
+<section class="block" id="block-0">
+<h2>Block #0 <span class="badge">valid</span></h2>
+<dl>
+<dt>Hash</dt><dd class="mono">c52c26c8b5461639635d8edf2a97d48d0c8e0009c817f2b1d3d7ff2f04515803</dd>
+<dt>Previous</dt><dd class="mono">0000000000000000000000000000000000000000000000000000000000000000</dd>
+<dt>Mined</dt><dd>2018-09-22 01:00:00 UTC</dd>
+<dt>Difficulty</dt><dd>0</dd>
+<dt>Nonce</dt><dd>0</dd>
+<dt>Data</dt><dd>Holberton School</dd>
+</dl>
+<h3>Transactions (0)</h3>
+</section>
+<div class="link">&darr; linked by hash</div>
+<section class="block" id="block-1">
+<h2>Block #1 <span class="badge">valid</span></h2>
+<dl>
+<dt>Hash</dt><dd class="mono">f3cec23ba023a2a5caa7aec6e73775230673648652f5a22cc75bcccffffbba23</dd>
+<dt>Previous</dt><dd class="mono"><a href="#block-0">c52c26c8b5461639635d8edf2a97d48d0c8e0009c817f2b1d3d7ff2f04515803</a></dd>
+<dt>Mined</dt><dd>2026-09-30 14:18:21 UTC</dd>
+<dt>Difficulty</dt><dd>0</dd>
+<dt>Nonce</dt><dd>0</dd>
+<dt>Data</dt><dd></dd>
+</dl>
+<h3>Transactions (1)</h3>
+<div class="tx"><div><span class="tag">coinbase</span> Transaction <span class="mono" title="43de83b3eefc3c2f952743b9cd48e432cf3d4d54151dadd56f8b0e3b7dafe3bc">43de83b3eefc&hellip;7dafe3bc</span></div>
+<div class="io"><div><h4>Inputs</h4>
+<p class="muted">Block reward (new coins)</p>
+</div><div><h4>Outputs</h4>
+<p><b>50</b> coins &rarr; <span class="mono" title="043b9d75f8c7232eb282cac7c2f1472bf3ba4911c7e4b74eaab425e996462816142a297dad4b0b4d1f06b3377a11a61783d3f9a8e9a78305d6910c40b2fd85efb4">043b9d75f8c7&hellip;fd85efb4</span></p>
+</div></div></div>
+</section>
+<div class="link">&darr; linked by hash</div>
+<section class="block" id="block-2">
+<h2>Block #2 <span class="badge">valid</span></h2>
+<dl>
+<dt>Hash</dt><dd class="mono">c324f31b32d7798edc0e37ff2f477cde268411f1849ed64b379155ffaab2b9b3</dd>
+<dt>Previous</dt><dd class="mono"><a href="#block-1">f3cec23ba023a2a5caa7aec6e73775230673648652f5a22cc75bcccffffbba23</a></dd>
+<dt>Mined</dt><dd>2026-09-30 14:18:21 UTC</dd>
+<dt>Difficulty</dt><dd>0</dd>
+<dt>Nonce</dt><dd>0</dd>
+<dt>Data</dt><dd></dd>
+</dl>
+<h3>Transactions (1)</h3>
+<div class="tx"><div><span class="tag">coinbase</span> Transaction <span class="mono" title="1c0fdd61b15951881f3ecca3f62ee659e3069c1a5afb827806ff23a0c93a8ecb">1c0fdd61b159&hellip;c93a8ecb</span></div>
+<div class="io"><div><h4>Inputs</h4>
+<p class="muted">Block reward (new coins)</p>
+</div><div><h4>Outputs</h4>
+<p><b>50</b> coins &rarr; <span class="mono" title="043b9d75f8c7232eb282cac7c2f1472bf3ba4911c7e4b74eaab425e996462816142a297dad4b0b4d1f06b3377a11a61783d3f9a8e9a78305d6910c40b2fd85efb4">043b9d75f8c7&hellip;fd85efb4</span></p>
+</div></div></div>
+</section>
+<div class="link">&darr; linked by hash</div>
+<section class="block" id="block-3">
+<h2>Block #3 <span class="badge">valid</span></h2>
+<dl>
+<dt>Hash</dt><dd class="mono">2c0ac8c13dfaa2df18c62dd3cf6921dc648f509165e2d69f5eef6dde962c1b99</dd>
+<dt>Previous</dt><dd class="mono"><a href="#block-2">c324f31b32d7798edc0e37ff2f477cde268411f1849ed64b379155ffaab2b9b3</a></dd>
+<dt>Mined</dt><dd>2026-09-30 14:18:21 UTC</dd>
+<dt>Difficulty</dt><dd>0</dd>
+<dt>Nonce</dt><dd>0</dd>
+<dt>Data</dt><dd></dd>
+</dl>
+<h3>Transactions (3)</h3>
+<div class="tx"><div><span class="tag">coinbase</span> Transaction <span class="mono" title="53c334870264bc8382ace71bbff0239a8d5a36d9590b6a03f641f3b0e4fcae1c">53c334870264&hellip;e4fcae1c</span></div>
+<div class="io"><div><h4>Inputs</h4>
+<p class="muted">Block reward (new coins)</p>
+</div><div><h4>Outputs</h4>
+<p><b>50</b> coins &rarr; <span class="mono" title="043b9d75f8c7232eb282cac7c2f1472bf3ba4911c7e4b74eaab425e996462816142a297dad4b0b4d1f06b3377a11a61783d3f9a8e9a78305d6910c40b2fd85efb4">043b9d75f8c7&hellip;fd85efb4</span></p>
+</div></div></div>
+<div class="tx"><div>Transaction <span class="mono" title="18187e90bad58e40c6ca6d6142df6c3f4458239988180798653ebef04487377f">18187e90bad5&hellip;4487377f</span></div>
+<div class="io"><div><h4>Inputs</h4>
+<p>Spends <span class="mono" title="8980b8ab0496b374d245922b3220f26f3e9610c0b308485190a3ce43d7b2742f">8980b8ab0496&hellip;d7b2742f</span> from tx <span class="mono" title="43de83b3eefc3c2f952743b9cd48e432cf3d4d54151dadd56f8b0e3b7dafe3bc">43de83b3eefc&hellip;7dafe3bc</span> <span class="tag">signed</span></p>
+</div><div><h4>Outputs</h4>
+<p><b>10</b> coins &rarr; <span class="mono" title="04d2335bcb8e3a1013ff18648b55a939dcec35ea6cb8a497089d73d5a79b069f74255d4442032b61cf328d0da7fcf8822380f7876b09ffc2002f5957a619ceb0c4">04d2335bcb8e&hellip;19ceb0c4</span></p>
+<p><b>40</b> coins &rarr; <span class="mono" title="043b9d75f8c7232eb282cac7c2f1472bf3ba4911c7e4b74eaab425e996462816142a297dad4b0b4d1f06b3377a11a61783d3f9a8e9a78305d6910c40b2fd85efb4">043b9d75f8c7&hellip;fd85efb4</span></p>
+</div></div></div>
+<div class="tx"><div>Transaction <span class="mono" title="317869a5ea324f3e2d528c5739758405af844ca2887fa73a21cc740e825b32ea">317869a5ea32&hellip;825b32ea</span></div>
+<div class="io"><div><h4>Inputs</h4>
+<p>Spends <span class="mono" title="8980b8ab0496b374d245922b3220f26f3e9610c0b308485190a3ce43d7b2742f">8980b8ab0496&hellip;d7b2742f</span> from tx <span class="mono" title="1c0fdd61b15951881f3ecca3f62ee659e3069c1a5afb827806ff23a0c93a8ecb">1c0fdd61b159&hellip;c93a8ecb</span> <span class="tag">signed</span></p>
+</div><div><h4>Outputs</h4>
+<p><b>5</b> coins &rarr; <span class="mono" title="04d2335bcb8e3a1013ff18648b55a939dcec35ea6cb8a497089d73d5a79b069f74255d4442032b61cf328d0da7fcf8822380f7876b09ffc2002f5957a619ceb0c4">04d2335bcb8e&hellip;19ceb0c4</span></p>
+<p><b>45</b> coins &rarr; <span class="mono" title="043b9d75f8c7232eb282cac7c2f1472bf3ba4911c7e4b74eaab425e996462816142a297dad4b0b4d1f06b3377a11a61783d3f9a8e9a78305d6910c40b2fd85efb4">043b9d75f8c7&hellip;fd85efb4</span></p>
+</div></div></div>
+</section>
+<h2>Unspent outputs (5)</h2>
+<div class="scroll"><table>
+<tr><th>Amount</th><th>Owner</th><th>Transaction</th><th>Block</th></tr>
+<tr><td><b>50</b></td><td><span class="mono" title="043b9d75f8c7232eb282cac7c2f1472bf3ba4911c7e4b74eaab425e996462816142a297dad4b0b4d1f06b3377a11a61783d3f9a8e9a78305d6910c40b2fd85efb4">043b9d75f8c7&hellip;fd85efb4</span></td><td><span class="mono" title="53c334870264bc8382ace71bbff0239a8d5a36d9590b6a03f641f3b0e4fcae1c">53c334870264&hellip;e4fcae1c</span></td><td><span class="mono" title="2c0ac8c13dfaa2df18c62dd3cf6921dc648f509165e2d69f5eef6dde962c1b99">2c0ac8c13dfa&hellip;962c1b99</span></td></tr>
+<tr><td><b>10</b></td><td><span class="mono" title="04d2335bcb8e3a1013ff18648b55a939dcec35ea6cb8a497089d73d5a79b069f74255d4442032b61cf328d0da7fcf8822380f7876b09ffc2002f5957a619ceb0c4">04d2335bcb8e&hellip;19ceb0c4</span></td><td><span class="mono" title="18187e90bad58e40c6ca6d6142df6c3f4458239988180798653ebef04487377f">18187e90bad5&hellip;4487377f</span></td><td><span class="mono" title="2c0ac8c13dfaa2df18c62dd3cf6921dc648f509165e2d69f5eef6dde962c1b99">2c0ac8c13dfa&hellip;962c1b99</span></td></tr>
+<tr><td><b>40</b></td><td><span class="mono" title="043b9d75f8c7232eb282cac7c2f1472bf3ba4911c7e4b74eaab425e996462816142a297dad4b0b4d1f06b3377a11a61783d3f9a8e9a78305d6910c40b2fd85efb4">043b9d75f8c7&hellip;fd85efb4</span></td><td><span class="mono" title="18187e90bad58e40c6ca6d6142df6c3f4458239988180798653ebef04487377f">18187e90bad5&hellip;4487377f</span></td><td><span class="mono" title="2c0ac8c13dfaa2df18c62dd3cf6921dc648f509165e2d69f5eef6dde962c1b99">2c0ac8c13dfa&hellip;962c1b99</span></td></tr>
+<tr><td><b>5</b></td><td><span class="mono" title="04d2335bcb8e3a1013ff18648b55a939dcec35ea6cb8a497089d73d5a79b069f74255d4442032b61cf328d0da7fcf8822380f7876b09ffc2002f5957a619ceb0c4">04d2335bcb8e&hellip;19ceb0c4</span></td><td><span class="mono" title="317869a5ea324f3e2d528c5739758405af844ca2887fa73a21cc740e825b32ea">317869a5ea32&hellip;825b32ea</span></td><td><span class="mono" title="2c0ac8c13dfaa2df18c62dd3cf6921dc648f509165e2d69f5eef6dde962c1b99">2c0ac8c13dfa&hellip;962c1b99</span></td></tr>
+<tr><td><b>45</b></td><td><span class="mono" title="043b9d75f8c7232eb282cac7c2f1472bf3ba4911c7e4b74eaab425e996462816142a297dad4b0b4d1f06b3377a11a61783d3f9a8e9a78305d6910c40b2fd85efb4">043b9d75f8c7&hellip;fd85efb4</span></td><td><span class="mono" title="317869a5ea324f3e2d528c5739758405af844ca2887fa73a21cc740e825b32ea">317869a5ea32&hellip;825b32ea</span></td><td><span class="mono" title="2c0ac8c13dfaa2df18c62dd3cf6921dc648f509165e2d69f5eef6dde962c1b99">2c0ac8c13dfa&hellip;962c1b99</span></td></tr>
+</table></div>
+</main>
+<footer class="muted">Generated by hblk_explorer &middot; HBLK format 0.3</footer>
+</body>
+</html>
